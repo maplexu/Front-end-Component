@@ -1,0 +1,39 @@
+.content-title {
+  font-size: 30px;
+  font-weight: 400;
+  color: #1f2f3d;
+  margin-bottom: 50px;
+}
+.content-item {
+  margin-bottom: 30px;
+  .content-topic {
+    font-size: 24px;
+    font-weight: 400;
+    color: #1f2f3d;
+  }
+  .content-example {
+    padding: 15px;
+    .xu-row {
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+// 类似md中 `` 给文字的效果
+code {
+  padding: 0 4px;
+  border: 1px solid #eaeefb;
+  background: #f9fafc;
+}
+
+
+/* vue动画 */
+.slide-enter { height: 0; opacity: 0}
+.slide-enter-active { transition: 0.5s all ease }
+.slide-enter-to { opacity: 1 }
+
+.slide-leave { opacity: 1 }
+.slide-leave-active { transition: 0.5s all ease }
+.slide-leave-to { height: 0; opacity: 0; }

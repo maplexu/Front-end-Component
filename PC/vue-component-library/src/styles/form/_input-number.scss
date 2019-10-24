@@ -1,0 +1,162 @@
+/*
+  1. 计数器输入框的样式
+ */
+.xu-input-number {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  line-height: 38px;
+}
+.xu-input-number .xu-input {
+  display: block;
+}
+.xu-input-number .xu-input__inner {
+  -webkit-appearance: none;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;                  // 让计数器的输入框中文字居中对齐
+}
+// 在没有控制按键的情况下输入框的样式
+.xu-input-number.is-without-controls .xu-input__inner {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+/*
+  2. 计数器的增大/减少 按钮的样式（样式1:两个按钮在输入框的两侧）
+ */
+.xu-input-number__decrease, .xu-input-number__increase {
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  width: 40px;
+  height: auto;
+  text-align: center;
+  background: #f5f7fa;
+  color: #606266;
+  cursor: pointer;
+  font-size: 13px;
+}
+.xu-input-number__decrease {
+  left: 1px;
+  border-radius: 4px 0 0 4px;
+  border-right: 1px solid #dcdfe6;
+}
+.xu-input-number__increase {
+  right: 1px;
+  border-radius: 0 4px 4px 0;
+  border-left: 1px solid #dcdfe6;
+}
+.xu-input-number__decrease:hover, .xu-input-number__increase:hover {
+  color: #409EFF;
+}
+.xu-input-number__decrease:hover:not(.is-disabled)~.xu-input .xu-input__inner:not(.is-disabled),
+.xu-input-number__increase:hover:not(.is-disabled)~.xu-input .xu-input__inner:not(.is-disabled) {
+  border-color: #409EFF;
+}
+.xu-input-number__decrease.is-disabled, .xu-input-number__increase.is-disabled {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+// 注意这里，整个计数器禁用状态和 增/减 按钮的禁用状态，字体颜色等样式表现不同
+.xu-input-number.is-disabled .xu-input-number__decrease, .xu-input-number.is-disabled .xu-input-number__increase {
+  border-color: #e4e7ed;
+  color: #e4e7ed
+}
+.xu-input-number.is-disabled .xu-input-number__decrease:hover, .xu-input-number.is-disabled .xu-input-number__increase:hover {
+  color: #e4e7ed;
+  cursor: not-allowed
+}
+
+/*
+  3. 计数器的增大/减少 按钮的样式（样式2: 两个按钮在输入框的右侧上下排列）
+ */
+.xu-input-number.is-controls-right .xu-input__inner {
+  padding-left: 15px;
+  padding-right: 50px;
+}
+.xu-input-number.is-controls-right .xu-input-number__decrease, .xu-input-number.is-controls-right .xu-input-number__increase {
+  height: auto;
+  line-height: 19px
+}
+.xu-input-number.is-controls-right .xu-input-number__decrease [class*=xu-icon], .xu-input-number.is-controls-right .xu-input-number__increase [class*=xu-icon] {
+  -webkit-transform: scale(.8);
+  transform: scale(.8)
+}
+.xu-input-number.is-controls-right .xu-input-number__increase {
+  border-radius: 0 4px 0 0;
+  border-bottom: 1px solid #dcdfe6;
+}
+.xu-input-number.is-controls-right .xu-input-number__decrease {
+  right: 1px;
+  bottom: 1px;
+  top: auto;
+  left: auto;
+  border-right: none;
+  border-left: 1px solid #dcdef6;
+  border-radius: 0 0 4px;
+}
+.xu-input-number.is-controls-right[class*=medium] [class*=decrease], .xu-input-number.is-controls-right[class*=medium] [class*=increase] {
+  line-height: 17px
+}
+
+.xu-input-number.is-controls-right[class*=small] [class*=decrease], .xu-input-number.is-controls-right[class*=small] [class*=increase] {
+  line-height: 15px
+}
+
+.xu-input-number.is-controls-right[class*=mini] [class*=decrease], .xu-input-number.is-controls-right[class*=mini] [class*=increase] {
+  line-height: 13px
+}
+
+
+/*
+  4.其他不同尺寸下的样式
+ */
+// medium
+.xu-input-number--medium {
+  width: 200px;
+  line-height: 34px;
+}
+.xu-input-number--medium .xu-input__inner {
+  padding-left: 43px;
+  padding-right: 43px;
+}
+.xu-input-number--medium .xu-input-number__decrease, .xu-input-number--medium .xu-input-number__increase {
+  width: 36px;
+  font-size: 14px;
+}
+// small
+.xu-input-number--small {
+  width: 130px;
+  font-size: 30px;
+}
+.xu-input-number--small .xu-input__inner {
+  padding-left: 39px;
+  padding-right: 39px;
+}
+.xu-input-number--small .xu-input-number__decrease, .xu-input-number--small .xu-input-number__increase {
+  width: 32px;
+  font-size: 13px;
+}
+.xu-input-number--small .xu-input-number__decrease [class*=xu-icon], .xu-input-number--small .xu-input-number__increase [class*=xu-icon] {
+  -webkit-transform: scale(.9);
+  transform: scale(.9)
+}
+// mini
+.xu-input-number--mini {
+  width: 130px;
+  line-height: 26px;
+}
+.xu-input-number--mini .xu-input__inner {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+.xu-input-number-mini .xu-input-number__decrease, .xu-input-number--mini .xu-input-number__increase {
+  width: 28px;
+  font-size: 12px;
+}
+.xu-input-number--mini .xu-input-number__decrease [class*=xu-icon], .xu-input-number--mini .xu-input-number__increase [class*=xu-icon] {
+  -webkit-transform: scale(.8);
+  transform: scale(.8)
+}

@@ -1,0 +1,234 @@
+/*
+  1.通用样式
+ */
+.xu-checkbox, .xu-checkbox__input {
+  display: inline-block;
+  position: relative;
+}
+.xu-checkbox-button__inner, .xu-checkbox__input {
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 0;
+}
+
+/*
+  2.xu-checkbox样式类
+ */
+.xu-checkbox {
+  color: #606266;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.xu-checkbox+.xu-checkbox {
+  margin-left: 30px
+}
+.xu-checkbox.is-bordered {
+  padding: 0px 20px 9px 10px;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: normal;
+  height: 40px;
+}
+.xu-checkbox.is-bordered.is-checked {
+  border-color: #409EFF;
+}
+.xu-checkbox.is-bordered.is-disabled {
+  border-color: #ebeef5;
+  cursor: not-allowed;
+}
+.xu-checkbox.is-bordered+.xu-checkbox.is-bordered {
+  margin-left: 10px;
+}
+// 控制checkbox组件的不同尺寸（尺寸必须要在border情况下才有效），及其不同尺寸下子元素的表现效果
+// medium尺寸
+.xu-checkbox.is-bordered.xu-checkbox--medium {
+  padding: 7px 20px 7px 10px;
+  border-radius: 4px;
+  height: 36px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--medium .xu-checkbox__inner {
+  height: 14px;
+  width: 14px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--medium .xu-checkbox__label {
+  line-height: 17px;
+  font-size: 14px;
+}
+// small尺寸
+.xu-checkbox.is-bordered.xu-checkbox--small {
+  padding: 5px 15px 5px 10px;
+  border-radius: 3px;
+  height: 32px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--small .xu-checkbox__inner {
+  height: 12px;
+  width: 12px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--small .xu-checkbox__inner::after {
+  height: 6px;
+  width: 2px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--small .xu-checkbox__label {
+  line-height: 15px;
+  font-size: 12px;
+}
+// mini尺寸
+.xu-checkbox.is-bordered.xu-checkbox--mini {
+  padding: 3px 15px 3px 10px;
+  border-radius: 3px;
+  height: 28px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--mini .xu-checkbox__inner {
+  height: 12px;
+  width: 12px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--mini .xu-checkbox__inner::after {
+  height: 6px;
+  width: 2px;
+}
+.xu-checkbox.is-bordered.xu-checkbox--mini .xu-checkbox__label {
+  line-height: 12px;
+  font-size: 12px;
+}
+
+
+/*
+  3.xu-checkbox__input样式类--控制子元素在不同状态（disabled、checked、indeterminate）下的样式效果
+ */
+.xu-checkbox__input {
+  cursor: pointer;
+  line-height: 1;
+}
+.xu-checkbox__input.is-disabled .xu-checkbox__inner {
+  background-color: #edf2fc;
+  border-color: #dcdfe6;
+  cursor: not-allowed;
+}
+.xu-checkbox__input.is-disabled .xu-checkbox__inner::after {
+  cursor: not-allowed;
+  border-color: #c0c4cc;
+}
+// .xu-checkbox__input.is-disabled .xu-checkbox__inner+.xu-checkbox__label {
+//   cursor: not-allowed;
+// }
+.xu-checkbox__input.is-disabled.is-checked .xu-checkbox__inner {
+  background-color: #f2f6fc;
+  border-color: #dcdfe6;
+}
+.xu-checkbox__input.is-disabled.is-checked .xu-checkbox__inner::after {
+  border-color: #c0c4cc;
+}
+.xu-checkbox__input.is-disabled.is-indeterminate .xu-checkbox-inner {
+  background-color: #f2f6fc;
+  border-color: #dcdfe6;
+}
+.xu-checkbox__input.is-disabled.is-indeterminate .xu-checkbox__inner::before {
+  background-color: #c0c4cc;
+  border-color: #c0c4cc
+}
+.xu-checkbox__input.is-checked .xu-checkbox__inner, .xu-checkbox__input.is-indeterminate .xu-checkbox__inner {
+  background-color: #409EFF;
+  border-color: #409EFF;
+}
+.xu-checkbox__input.is-disabled+span.xu-checkbox__label {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+.xu-checkbox__input.is-checked .xu-checkbox__inner::after {
+  transform: rotate(45deg) scaleY(1);
+  -webkit-transform: rotate(45deg) scaleY(1);
+}
+.xu-checkbox__input.is-checked+.xu-checkbox__label {
+  color: #409EFF;
+}
+
+// 是否需要在点击取消了，但是焦点仍在该元素上时，元素的外边框有蓝色
+// .xu-checkbox__input.is-focus .xu-checkbox__inner {
+//   border-color: #409EFF;
+// }
+
+// indeterminate状态（部分全选）下选择框的样式（使用一个高度为2px，颜色为白色的横线来表示）
+.xu-checkbox__input.is-indeterminate .xu-checkbox__inner::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  height: 2px;
+  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  left: 0;
+  right: 0;
+  top: 5px;
+}
+.xu-checkbox__input.is-indeterminate .xu-checkbox::after {
+  display: none;
+}
+
+// xu-checkbox__inner——自定义多选框的样式（选中则是打勾，非全选则是横线的样式）
+.xu-checkbox__inner {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #dcdfe6;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  z-index: 1;
+  -webkit-transition: border-color .25s cubic-bezier(.71, -.46, .29, 1.46), background-color .25s cubic-bezier(.71, -.46, .29, 1.46);
+  transition: border-color .25s cubic-bezier(.71, -.46, .29, 1.46), background-color .25s cubic-bezier(.71, -.46, .29, 1.46);
+}
+.xu-checkbox__inner:hover {
+  border-color: #409EFF;
+}
+.xu-checkbox__inner::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  content: "";
+  border: 1px solid #fff;
+  border-left: 0;
+  border-top: 0;
+  height: 7px;
+  width: 3px;
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  -webkit-transform: rotate(45deg) scaleY(0);
+  transform: rotate(45deg) scaleY(0);
+  -webkit-transition: -webkit-transform .15s cubic-bezier(.71, -.46, .88, .6) 50ms;
+  transition: -webkit-transform .15s cubic-bezier(.71, -.46, .88, .6) 50ms;
+  transition: transform .15s cubic-bezier(.71, -.46, .88, .6) 50ms;
+  transition: transform .15s cubic-bezier(.71, -.46, .88, .6) 50ms, -webkit-transform .15s cubic-bezier(.71, -.46, .88, .6) 50ms;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
+// xu-checkbox__original —— 对原生表单元素的样式控制，主要是让原生的表单元素不可见
+.xu-checkbox__original {
+  position: absolute;
+  margin: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  outline: 0;
+  z-index: -1;
+}
+
+/*
+  4. xu-checkbox__label——描述文字的样式
+ */
+.xu-checkbox__label {
+  display: inline-block;
+  padding-left: 10px;
+  line-height: 19px;
+  font-size: 14px;
+}

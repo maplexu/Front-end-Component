@@ -1,0 +1,113 @@
+.xu-button-group {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.xu-button-group::after, .xu-button-group::before {
+  display: table;
+  content: ""
+}
+
+.xu-button-group::after {
+  clear: both
+}
+
+.xu-button-group .xu-button {
+  float: left;
+  position: relative
+}
+
+.xu-button-group .xu-button+.xu-button {
+  margin-left: 0
+}
+
+.xu-button-group .xu-button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0
+}
+
+.xu-button-group .xu-button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0
+}
+
+.xu-button-group .xu-button:first-child:last-child {
+  border-radius: 4px
+}
+
+.xu-button-group .xu-button:not(:first-child):not(:last-child) {
+  border-radius: 0
+}
+
+.xu-button-group .xu-button:not(:last-child) {
+  margin-right: -1px
+}
+
+.xu-button-group .xu-button.is-active, .xu-button-group .xu-button:active, .xu-button-group .xu-button:focus, .xu-button-group .xu-button:hover {
+  z-index: 1
+}
+
+.xu-button-group .xu-button--primary:first-child {
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--primary:last-child {
+  border-left-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--primary:not(:first-child):not(:last-child) {
+  border-left-color: rgba(255, 255, 255, .5);
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--success:first-child {
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--success:last-child {
+  border-left-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--success:not(:first-child):not(:last-child) {
+  border-left-color: rgba(255, 255, 255, .5);
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--warning:first-child {
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--warning:last-child {
+  border-left-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--warning:not(:first-child):not(:last-child) {
+  border-left-color: rgba(255, 255, 255, .5);
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--danger:first-child {
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--danger:last-child {
+  border-left-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--danger:not(:first-child):not(:last-child) {
+  border-left-color: rgba(255, 255, 255, .5);
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--info:first-child {
+  border-right-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--info:last-child {
+  border-left-color: rgba(255, 255, 255, .5)
+}
+
+.xu-button-group .xu-button--info:not(:first-child):not(:last-child) {
+  border-left-color: rgba(255, 255, 255, .5);
+  border-right-color: rgba(255, 255, 255, .5)
+}

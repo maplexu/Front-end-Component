@@ -1,0 +1,341 @@
+// 1.使用font-face声明字体
+// **注意：** @font-face中的src使用时，url中的路径使用相对于服务器根目录的绝对路径，其他的相对路径的写法都有问题（该问题可看下在dev环境下scss的代码到底被编译到哪里去了）
+@font-face {
+  font-family: xu-icons;
+  src: url(/fonts/element-icons.woff) format("woff"),      /* 兼容chrome, firefox */
+  url(/fonts/element-icons.ttf) format("truetype");        /* 兼容chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  font-weight: 400;
+  font-style: normal;
+}
+
+// 2.定义字体的基本样式
+[class*=" xu-icon-"], [class^="xu-icon-"] {
+  font-family: xu-icons !important;
+  speak: none;                // 取消发音
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;        // 字体抗锯齿渲染
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 3.指定具体的字体内容
+.xu-icon-info:before {
+  content: "\e61a"
+}
+
+.xu-icon-error:before {
+  content: "\e62c"
+}
+
+.xu-icon-success:before {
+  content: "\e62d"
+}
+
+.xu-icon-warning:before {
+  content: "\e62e"
+}
+
+.xu-icon-question:before {
+  content: "\e634"
+}
+
+.xu-icon-back:before {
+  content: "\e606"
+}
+
+.xu-icon-arrow-left:before {
+  content: "\e600"
+}
+
+.xu-icon-arrow-down:before {
+  content: "\e603"
+}
+
+.xu-icon-arrow-right:before {
+  content: "\e604"
+}
+
+.xu-icon-arrow-up:before {
+  content: "\e605"
+}
+
+.xu-icon-caret-left:before {
+  content: "\e60a"
+}
+
+.xu-icon-caret-bottom:before {
+  content: "\e60b"
+}
+
+.xu-icon-caret-top:before {
+  content: "\e60c"
+}
+
+.xu-icon-caret-right:before {
+  content: "\e60e"
+}
+
+.xu-icon-d-arrow-left:before {
+  content: "\e610"
+}
+
+.xu-icon-d-arrow-right:before {
+  content: "\e613"
+}
+
+.xu-icon-minus:before {
+  content: "\e621"
+}
+
+.xu-icon-plus:before {
+  content: "\e62b"
+}
+
+.xu-icon-remove:before {
+  content: "\e635"
+}
+
+.xu-icon-circle-plus:before {
+  content: "\e601"
+}
+
+.xu-icon-remove-outline:before {
+  content: "\e63c"
+}
+
+.xu-icon-circle-plus-outline:before {
+  content: "\e602"
+}
+
+.xu-icon-close:before {
+  content: "\e60f"
+}
+
+.xu-icon-check:before {
+  content: "\e611"
+}
+
+.xu-icon-circle-close:before {
+  content: "\e607"
+}
+
+.xu-icon-circle-check:before {
+  content: "\e639"
+}
+
+.xu-icon-circle-close-outline:before {
+  content: "\e609"
+}
+
+.xu-icon-circle-check-outline:before {
+  content: "\e63e"
+}
+
+.xu-icon-zoom-out:before {
+  content: "\e645"
+}
+
+.xu-icon-zoom-in:before {
+  content: "\e641"
+}
+
+.xu-icon-d-caret:before {
+  content: "\e615"
+}
+
+.xu-icon-sort:before {
+  content: "\e640"
+}
+
+.xu-icon-sort-down:before {
+  content: "\e630"
+}
+
+.xu-icon-sort-up:before {
+  content: "\e631"
+}
+
+.xu-icon-tickets:before {
+  content: "\e63f"
+}
+
+.xu-icon-document:before {
+  content: "\e614"
+}
+
+.xu-icon-goods:before {
+  content: "\e618"
+}
+
+.xu-icon-sold-out:before {
+  content: "\e63b"
+}
+
+.xu-icon-news:before {
+  content: "\e625"
+}
+
+.xu-icon-message:before {
+  content: "\e61b"
+}
+
+.xu-icon-date:before {
+  content: "\e608"
+}
+
+.xu-icon-printer:before {
+  content: "\e62f"
+}
+
+.xu-icon-time:before {
+  content: "\e642"
+}
+
+.xu-icon-bell:before {
+  content: "\e622"
+}
+
+.xu-icon-mobile-phone:before {
+  content: "\e624"
+}
+
+.xu-icon-service:before {
+  content: "\e63a"
+}
+
+.xu-icon-view:before {
+  content: "\e643"
+}
+
+.xu-icon-menu:before {
+  content: "\e620"
+}
+
+.xu-icon-more:before {
+  content: "\e646"
+}
+
+.xu-icon-more-outline:before {
+  content: "\e626"
+}
+
+.xu-icon-star-on:before {
+  content: "\e637"
+}
+
+.xu-icon-star-off:before {
+  content: "\e63d"
+}
+
+.xu-icon-location:before {
+  content: "\e61d"
+}
+
+.xu-icon-location-outline:before {
+  content: "\e61f"
+}
+
+.xu-icon-phone:before {
+  content: "\e627"
+}
+
+.xu-icon-phone-outline:before {
+  content: "\e628"
+}
+
+.xu-icon-picture:before {
+  content: "\e629"
+}
+
+.xu-icon-picture-outline:before {
+  content: "\e62a"
+}
+
+.xu-icon-delete:before {
+  content: "\e612"
+}
+
+.xu-icon-search:before {
+  content: "\e619"
+}
+
+.xu-icon-edit:before {
+  content: "\e61c"
+}
+
+.xu-icon-edit-outline:before {
+  content: "\e616"
+}
+
+.xu-icon-rank:before {
+  content: "\e632"
+}
+
+.xu-icon-refresh:before {
+  content: "\e633"
+}
+
+.xu-icon-share:before {
+  content: "\e636"
+}
+
+.xu-icon-setting:before {
+  content: "\e638"
+}
+
+.xu-icon-upload:before {
+  content: "\e60d"
+}
+
+.xu-icon-upload2:before {
+  content: "\e644"
+}
+
+.xu-icon-download:before {
+  content: "\e617"
+}
+
+// loading图标的字体
+.xu-icon-loading:before {
+  content: "\e61e"
+}
+
+// 给loading图标添加动画效果，使之可以旋转
+.xu-icon-loading {
+  -webkit-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite
+}
+
+.xu-icon--right {
+  margin-left: 5px
+}
+
+.xu-icon--left {
+  margin-right: 5px
+}
+
+@keyframes rotating {
+  0% {
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotating {
+  0% {
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
