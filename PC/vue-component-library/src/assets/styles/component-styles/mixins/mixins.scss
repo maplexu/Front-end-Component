@@ -1,0 +1,37 @@
+@import '../common/variables.scss';
+
+
+// 修改滚动条的默认样式（对滚动条各部分的样式设置参考 https://www.cnblogs.com/ruoyaozhan/p/10872465.html）
+@mixin scroll-bar {
+  $--scrollbar-thumb-background: #b4bccc;             // 滚动条中滚动块的颜色
+  $--scrollbar-track-background: #fff;                // 滚动条中滚动轨道的颜色
+
+  &::-webkit-scroll {
+    z-index: 11;
+    width: 6px;
+
+    &:horizontal {
+      height: 6px;
+    }
+    
+    &-thumb {
+      border-radius: 5px;
+      width: 6px;
+      background: $--scrollbar-thumb-background;
+    }
+
+    &-corner {
+      background: $--scrollbar-track-background;
+    }
+
+    &-track {
+      background: $--scrollbar-track-background;
+
+      &-piece {
+        background: $--scrollbar-track-background;
+        width: 6px;
+      }
+    }
+  }
+
+}

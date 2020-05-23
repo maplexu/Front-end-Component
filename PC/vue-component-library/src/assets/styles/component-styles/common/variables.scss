@@ -1,0 +1,43 @@
+// 存放组件库全局通用的样式变量：
+@import "./config.scss";
+
+
+// 1.主题色：
+$color-primary : #408FFF;
+$color-info : #FF9515;
+$color-success : #47CE8B;
+$color-error : #FE6B5D;
+
+$color-default: $primary-color;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-transparent: transparent;
+
+// 2.尺寸属性：
+$w: 200px;
+$h: 32px;
+
+// 水平方向上的padding
+$h-padding: 12px;
+$h-padding-medium: 10px;
+$h-padding-small: 9px;
+$h-padding-mini: 7px;
+
+// 垂直方向上的padding
+$v-padding: 23px;
+$v-padding-medium: 20px;
+$v-padding-small: 15px;
+$v-padding-mini: 15px;
+
+// 行高
+$line-height: 1.5;
+
+// 文字大小
+$font-size: 14px;
+$font-size--medium: 14px;
+$font-size--small: 12px;
+$font-size--mini: 12px; 
+
+
+// 2.阴影样式
+$box-shadow: 0px 2px 10px 0px rgba(93, 153, 240, 0.16);

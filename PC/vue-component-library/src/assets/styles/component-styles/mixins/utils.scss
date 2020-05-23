@@ -1,0 +1,54 @@
+/**
+  * utils.js  全局通用混合指令（样式片段）
+*/
+
+
+// 单行文本溢出截断省略
+@mixin utils-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文本溢出截断省略
+@mixin utils-ellipsis-multiple($num) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+// 文本是否可选择
+@mixin utils-user-select($value) {
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}
+
+// 清除浮动：
+@mixin utils-clearfix {
+  $selector: &;
+
+  #{$selector}::before,                             // 这里的 #{变量} 为插值语句，可以用于在选择器或属性名中使用变量  
+  #{$selector}::after {
+    display: table;
+    content: "";
+  }
+  #{$selector}::after {
+    clear: both;
+  }
+}
+
+// 垂直居中；
+@mixin utils-vertical-middle {
+  $selector: &;
+
+  #{$selector}::after {
+    display: inline-block;
+    content: "";
+    height: 100%;
+    vertical-align: middle;
+  }
+}
