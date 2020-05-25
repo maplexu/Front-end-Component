@@ -1,4 +1,10 @@
-$namespace: "xu";                 // 命名空间前缀
-$element-separator: '__';         // 元素分隔符
-$modifier-separator: '--';        // 装饰分隔符
-$state-prefix: 'is-';             // 状态前缀
+// 命名空间前缀
+$namespace: "xu";
+
+// BEM命名所需的分隔符
+// ---- BEM命名规范详见有道笔记
+$element-separator: '__';         // 连接元素（element）的分隔符
+$modifier-separator: '--';        // 连接修饰符（modifier）的分隔符
+
+// flag样式前缀（例如：'isCenter'）
+$state-prefix: 'is-';             

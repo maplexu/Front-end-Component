@@ -1,0 +1,60 @@
+/**
+  * function.scss：
+  * 定义一些支持 ./mixins/mixins.scss文件中中 BEM 命名指令的函数
+*/
+
+@import "./common/config.scss";
+
+// 根据传入的选择器，返回对应的字符串结果
+@function selectorToString($selector) {
+  $selector: inspect($selector);                          // inspect 函数，用于获取一个选择器的字符串结果（用法详见下面的参考文章地址）
+  // inspect函数使用示例：@debug meta.inspect(10px 20px 30px);        // ("10px 20px 30px")
+  $selector: str-slice($selector, 2, -2);                 // str-slice 函数：用于返回对某个字符串截取的结果（这里头和尾的索引是2和-2是根据上面inspect函数的返回的结果来决定的）
+  @return $selector; 
+}
+
+// 判断选择器中是否包含修饰符
+// ------例如：判断 .el-button__body--active 中是否包含 '--'
+@function containModifier($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, $modifier-separator) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// 判断选择器中是否包含 is
+// ------例如：判断 .el-button__body--active 中是否包含 is
+@function containWhenFlag($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, '.' + $state-prefix) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// 判断选择器中是否包含伪元素
+// ------例如：判断 .el-button__body--active:before 中是否包含 :
+@function containPseudoClass($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, ':') {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// 判断选择器中是否包含 修饰符、状态前缀（is）、:
+@function hitAllSpecialNestRule($selector) {
+  @return containModifier($selector) or containWhenFlag($selector) or containPseudoClass($selector);
+}
+
+
+/**
+  * 参考文章：
+      1. sass函数的内置函数：
+        1. 菜鸟教程：https://www.runoob.com/sass/sass-functions.html
+        2. 官方文档：https://sass-lang.com/documentation/modules/meta
+*/

@@ -1,37 +1,60 @@
+/**
+  * mixins.scss：
+  * 定义一些特殊的指令
+*/
+@import "./function.scss";
 @import '../common/variables.scss';
 
 
-// 修改滚动条的默认样式（对滚动条各部分的样式设置参考 https://www.cnblogs.com/ruoyaozhan/p/10872465.html）
-@mixin scroll-bar {
-  $--scrollbar-thumb-background: #b4bccc;             // 滚动条中滚动块的颜色
-  $--scrollbar-track-background: #fff;                // 滚动条中滚动轨道的颜色
+/**
+  * 定义生成选择器（BEM命令规范）的指令
+*/
+// 1.定义 块（block） 的选择器
+@mixin b($block) {
+  $B: $namespace + '-' + $block !global;
 
-  &::-webkit-scroll {
-    z-index: 11;
-    width: 6px;
+  .#{$B} {
+    @content;                         // @content 命令用于在使用指令时，会将指令中的内容放到该位置来
+  }
+}
 
-    &:horizontal {
-      height: 6px;
-    }
-    
-    &-thumb {
-      border-radius: 5px;
-      width: 6px;
-      background: $--scrollbar-thumb-background;
-    }
-
-    &-corner {
-      background: $--scrollbar-track-background;
-    }
-
-    &-track {
-      background: $--scrollbar-track-background;
-
-      &-piece {
-        background: $--scrollbar-track-background;
-        width: 6px;
+// 2.定义 元素（element） 的选择器
+//  * 注意点：
+//      1. !global：变量提升，将局部变量提升为全局变量，在其他函数体内也能访问到此变量
+//      2. @at-root：将父级选择器直接暴力的改成根选择器
+@mixin e($element) {
+  $E: $element !global;
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+  }
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector} {
+          @content;
+        }
       }
+    } 
+  } @else {
+    #{$currentSelector} {
+      @content;
     }
   }
+}
 
+// 3.定义 修饰符（modifier） 的选择器
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
 }
