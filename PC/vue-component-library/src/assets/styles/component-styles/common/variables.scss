@@ -1,43 +1,138 @@
-// 存放组件库全局通用的样式变量：
+/**
+  * 存放组件库全局通用的样式变量：
+*/
+
+
 @import "./config.scss";
 
+// 注意点：为了区分全局变量和其他的局部变量，在全局变量（global）前面加上 g-
 
-// 1.主题色：
-$color-primary : #408FFF;
-$color-info : #FF9515;
-$color-success : #47CE8B;
-$color-error : #FE6B5D;
+/**
+  一.基础配置变量
+*/
+// 1.主题色
+$g-color-primary : #408FFF;
+$g-color-info : #878d99 ;
+$g-color-success : #67c23a ;
+$g-color-warning: #eb9e05;
+$g-color-danger : #fa5555 ;
 
-$color-default: $primary-color;
-$color-white: #ffffff;
-$color-black: #000000;
-$color-transparent: transparent;
+$g-color-base: $g-primary-color;
+$g-color-white: #ffffff;
+$g-color-black: #000000;
+$g-color-transparent: transparent;
 
-// 2.尺寸属性：
-$w: 200px;
-$h: 32px;
 
+$g-color-primary-light-1: mix($--color-white, $--color-primary, 10%);
+$g-color-primary-light-2: mix($--color-white, $--color-primary, 20%);
+$g-color-primary-light-3: mix($--color-white, $--color-primary, 30%);
+$g-color-primary-light-4: mix($--color-white, $--color-primary, 40%);
+$g-color-primary-light-5: mix($--color-white, $--color-primary, 50%);
+$g-color-primary-light-6: mix($--color-white, $--color-primary, 60%);
+$g-color-primary-light-7: mix($--color-white, $--color-primary, 70%);
+$g-color-primary-light-8: mix($--color-white, $--color-primary, 80%);
+$g-color-primary-light-9: mix($--color-white, $--color-primary, 90%);
+
+
+// 2.常见颜色变量：
+$g-background-color-base: #f5f7fa;                   // 默认背景色
+
+$g-fill-base: $--color-white;                           // 默认内容的填充色
+
+
+// 3.尺寸大小
+$g-size-base: 14px;
+
+
+// ----------------------------------------------------------------------------------------------
+
+/**
+  二.文字样式：
+*/
+
+// 1.文字大小
+$g-font-size: 14px;
+$g-font-size--base: 14px;
+$g-font-size--medium: 14px;
+$g-font-size--small: 13px;
+$g-font-size--mini: 12px;
+$g-font-size--large: 18px; 
+
+// 2.文字颜色（多个使用场景）
+$g-color-text-primary: #2d2f33;                   // 主要文本的颜色 
+$g-color-text-regular: #5a5e66;                   // 常规文本的颜色
+$g-color-text-secondary: #878d99;                 // 次级文本的颜色
+$g-color-text-placeholder: #b4bccc;               // placeholder文本的颜色
+
+$g-link-color: $g-color-primary-light-2;            // (超链接形式)文本的颜色
+$g-link-hover-color: $g-color-primary;
+
+// 3.其他字体样式：
+$g-font-path: 'fonts';
+$g-font-weight: 500;
+
+// 4.行高
+$g-line-height: 1.5;
+
+// ----------------------------------------------------------------------------------------------
+
+/**
+  盒模型样式：
+*/
+
+// 1.Border
+$g-border-width-base: 1px;
+
+$g-border-style-base: solid;
+
+$g-border-color-base: #d8dce5;
+$g-border-color-light: #dfe4ed;
+$g-border-color-lighter: #e6ebf5;
+$g-border-color-extra-light: #edf2fc;
+$g-border-color-hover: $--color-text-placeholder;
+
+$g-border-base: $--border-width-base $--border-style-base $--border-color-base;
+
+$g-border-radius-base: 4px;
+$g-border-radius-medium: 3px;
+$g-border-radius-small: 2px;
+$g-border-radius-mini: 2px;
+$g-border-radius-circle: 100%;
+
+// 2. padding
 // 水平方向上的padding
-$h-padding: 12px;
-$h-padding-medium: 10px;
-$h-padding-small: 9px;
-$h-padding-mini: 7px;
-
+$g-padding-v-base: 12px;
+$g-padding-v-medium: 10px;
+$g-padding-v-small: 9px;
+$g-padding-v-mini: 7px;
 // 垂直方向上的padding
-$v-padding: 23px;
-$v-padding-medium: 20px;
-$v-padding-small: 15px;
-$v-padding-mini: 15px;
-
-// 行高
-$line-height: 1.5;
-
-// 文字大小
-$font-size: 14px;
-$font-size--medium: 14px;
-$font-size--small: 12px;
-$font-size--mini: 12px; 
+$g-padding-h-base: 20px;
+$g-padding-h-medium: 20px;
+$g-padding-h-small: 15px;
+$g-padding-h-mini: 15px;
 
 
-// 2.阴影样式
-$box-shadow: 0px 2px 10px 0px rgba(93, 153, 240, 0.16);
+// 3. box-shadow
+$g-box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+$g-box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12);
+$g-box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+// ----------------------------------------------------------------------------------------------
+
+/**
+  其他
+*/
+// 1. z-index
+$g-index-normal: 1;
+$g-index-top: 1000;
+$g-index-popper: 2000;
+
+
+// 2. 图标颜色
+$g-icon-color: #666;
+$g-icon-color-base: $--color-info;
+
+// 3.一些disabled情况下的（填充、字体、边框）颜色
+$g-disabled-fill-base: $--background-color-base;
+$g-disabled-color-base: $--color-text-placeholder;
+$g-disabled-border-base: $--border-color-light;

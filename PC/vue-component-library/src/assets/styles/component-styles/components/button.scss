@@ -1,0 +1,65 @@
+@charset "UTF-8";
+@import "../common/config.scss";
+@import "../mixins/mixins.scss";
+@import "./mixins/utils.scss";
+
+
+/** 
+  * 定义按钮使用的变量---------------------------------------------------------------------------
+*/ 
+$button-font-weight: $g-font-weight;
+// 1.不同尺寸下：字体大小、border-radius大小、水平padding大小、垂直padding大小
+$button-font-size: $g-font-size-base;
+$button-border-radius: $g-border-radius-base;
+$button-padding-vertical: $g-padding-v-base;
+$button-padding-horizontal: $g-padding-h-base;
+
+$button-font-size-medium: $g-font-size-medium;
+$button-border-radius-medium: $g-border-radius-medium;
+$button-padding-vertical-medium: $g-padding-v-medium;
+$button-padding-horizontal-medium: $g-padding-h-medium;
+
+$button-font-size-small: $g-font-size-small;
+$button-border-radius-small: $g-border-radius-small;
+$button-padding-vertical-small: $g-padding-v-small;
+$button-padding-horizontal-small: $g-padding-h-small;
+
+$button-font-size-mini: $g-font-size-mini;
+$button-border-radius-mini: $g-border-radius-mini;
+$button-padding-vertical-mini: $g-padding-v-mini;
+$button-padding-horizontal-mini: $g-padding-h-mini;
+
+// 2.不同状态下：字体颜色、填充的背景色、边框样式
+$button-border: $g-border-base;
+$button-color: $g-color-text-primary;
+$button-fill: $g-fill-base;
+
+
+$button-border-color-primary: $-color-primary;
+$button-color-primary: $-color-white;
+$button-fill-primary: $-color-primary;
+
+$button-border-color-success: $-color-success;
+$button-color-success: $-color-white;
+$button-fill-success: $-color-success;
+
+$button-border-color-warning: $-color-warning;
+$button-color-warning: $-color-white;
+$button-fill-warning: $-color-warning;
+
+$button-border-color-primary: $-color-primary;
+$button-color-primary: $-color-white;
+$button-fill-primary: $-color-primary;
+
+$button-border-color-primary: $-color-primary;
+$button-color-primary: $-color-white;
+$button-fill-primary: $-color-primary;
+/*---------------------------------------------------------------------------*/
+
+
+// 按钮的基础样式
+@include b(button) {
+  display: inline-block;
+  line-height: $line-height;
+  white-space: nowrap;              // 文章
+}
