@@ -1,7 +1,6 @@
 /*
   修改webpack的默认配置
  */
-
 const path = require('path');
 function resolve(dir) {
   return path.resolve(__dirname, dir);
@@ -9,7 +8,7 @@ function resolve(dir) {
 
 module.exports = {
   configureWebpack: {
-    entry: ["babel-polyfill", './src/main.js'],
+    entry: ['babel-polyfill', './src/main.js'],
     // externals: {
     //   BMap: "BMap",
     //   BMapLib: "BMapLib"
@@ -24,13 +23,15 @@ module.exports = {
     //   }
     // }
   },
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.resolve.alias
       .set('@', resolve('./src'))
       .set('src', resolve('./src'))
       .set('assets', resolve('./src/assets'))
-      .set('component', resolve('./src/component'))
-  }
+      .set('component', resolve('./src/components'))
+      .set('basic-comp', resolve('./src/components/basic-comp'))
+      .set('business-comp', resolve('./src/components/business-comp'));
+  },
   // chainWebpack: config => {
   //   config.module
   //     .rule('fonts')

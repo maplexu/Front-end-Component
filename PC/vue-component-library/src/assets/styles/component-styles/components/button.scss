@@ -1,65 +1,34 @@
 @charset "UTF-8";
 @import "../common/config.scss";
 @import "../mixins/mixins.scss";
-@import "./mixins/utils.scss";
+@import "../mixins/utils.scss";
+@import "../mixins/_button.scss";
 
-
-/** 
-  * 定义按钮使用的变量---------------------------------------------------------------------------
-*/ 
-$button-font-weight: $g-font-weight;
-// 1.不同尺寸下：字体大小、border-radius大小、水平padding大小、垂直padding大小
-$button-font-size: $g-font-size-base;
-$button-border-radius: $g-border-radius-base;
-$button-padding-vertical: $g-padding-v-base;
-$button-padding-horizontal: $g-padding-h-base;
-
-$button-font-size-medium: $g-font-size-medium;
-$button-border-radius-medium: $g-border-radius-medium;
-$button-padding-vertical-medium: $g-padding-v-medium;
-$button-padding-horizontal-medium: $g-padding-h-medium;
-
-$button-font-size-small: $g-font-size-small;
-$button-border-radius-small: $g-border-radius-small;
-$button-padding-vertical-small: $g-padding-v-small;
-$button-padding-horizontal-small: $g-padding-h-small;
-
-$button-font-size-mini: $g-font-size-mini;
-$button-border-radius-mini: $g-border-radius-mini;
-$button-padding-vertical-mini: $g-padding-v-mini;
-$button-padding-horizontal-mini: $g-padding-h-mini;
-
-// 2.不同状态下：字体颜色、填充的背景色、边框样式
-$button-border: $g-border-base;
-$button-color: $g-color-text-primary;
-$button-fill: $g-fill-base;
-
-
-$button-border-color-primary: $-color-primary;
-$button-color-primary: $-color-white;
-$button-fill-primary: $-color-primary;
-
-$button-border-color-success: $-color-success;
-$button-color-success: $-color-white;
-$button-fill-success: $-color-success;
-
-$button-border-color-warning: $-color-warning;
-$button-color-warning: $-color-white;
-$button-fill-warning: $-color-warning;
-
-$button-border-color-primary: $-color-primary;
-$button-color-primary: $-color-white;
-$button-fill-primary: $-color-primary;
-
-$button-border-color-primary: $-color-primary;
-$button-color-primary: $-color-white;
-$button-fill-primary: $-color-primary;
-/*---------------------------------------------------------------------------*/
 
 
 // 按钮的基础样式
 @include b(button) {
   display: inline-block;
   line-height: $line-height;
-  white-space: nowrap;              // 文章
+  white-space: nowrap;                    // 文本不换行
+  line-height: $g-line-height;
+  cursor: pointer;
+  -webkit-appearance: none;               // 改变按钮元素在不同浏览器的默认显示外观 -- 这里默认都关闭，因为按钮的样式全部自己来手动设置
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;                          // 去除按钮周围的轮廓线（原生button元素在选中时(active)，在四周会出现默认的轮廓线，很丑，因此要去掉）
+  margin: 0;
+  transition: 0.1s;
+  font-weight: $button-font-weight;
+  @include utils-user-select(none);       // 按钮的文案不可被鼠标选中
+
+  & + #{&} {                              // 多个按钮同时在水平方向上显示时，添加一个横向间距 
+    margin-left: 10px;
+  }
+
+  // 设置默认按钮的尺寸样式
+  @include button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size, $button-border-radius);
+
+  // 设置默认按钮的渲染样式（文本颜色、背景色、边框）、以及在不同特殊状态下（:hover、:focus、:active、disbaled、plain、ghost）的样式表现
+  @include button-variant-default;
 }

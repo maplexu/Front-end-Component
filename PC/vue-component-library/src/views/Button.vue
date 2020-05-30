@@ -128,16 +128,16 @@
 </template>
 
 <script>
-import showExample from '../otherComponents/showExample.vue';
-import Row from '../components/layout/row/row.vue';
-import Button from '../components/button/button.vue';
+import showExample from 'business-comp/demo-box';
+import Row from 'basic-comp/layout/row/row.vue';
+import Button from 'basic-comp/button/button.vue';
 
 export default {
   components: {
     showExample,
     'xu-row': Row,
-    'xu-button': Button
-  }
+    'xu-button': Button,
+  },
 }
 </script>
 

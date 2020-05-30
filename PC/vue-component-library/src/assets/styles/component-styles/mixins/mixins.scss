@@ -7,7 +7,7 @@
 
 
 /**
-  * 定义生成选择器（BEM命令规范）的指令
+  * 定义生成（BEM命令规范）选择器的混合器
 */
 // 1.定义 块（block） 的选择器
 @mixin b($block) {
@@ -54,6 +54,18 @@
 
   @at-root {
     #{$currentSelector} {
+      @content;
+    }
+  }
+}
+
+/**
+  * 定义生成（状态中）选择器的混合器
+  * 例如 xu-button.isDisabled
+*/
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
       @content;
     }
   }

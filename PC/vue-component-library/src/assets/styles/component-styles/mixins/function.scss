@@ -35,7 +35,7 @@
   }
 }
 
-// 判断选择器中是否包含伪元素
+// 判断选择器中是否包含伪类
 // ------例如：判断 .el-button__body--active:before 中是否包含 :
 @function containPseudoClass($selector) {
   $selector: selectorToString($selector);
@@ -46,7 +46,7 @@
   }
 }
 
-// 判断选择器中是否包含 修饰符、状态前缀（is）、:
+// 判断选择器中是否包含 '--'、'is'、':'
 @function hitAllSpecialNestRule($selector) {
   @return containModifier($selector) or containWhenFlag($selector) or containPseudoClass($selector);
 }

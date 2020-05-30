@@ -30,13 +30,13 @@
 </template>
 
 <script>
-import showExample from '../otherComponents/showExample';
-import Icon from '../components/icon/icon.vue'
+import showExample from 'business-comp/demo-box';
+import Icon from 'basic-comp/icon/icon.vue';
 
 export default {
   components: {
     showExample,
-    'xu-icon': Icon
+    'xu-icon': Icon,
   }
 }
 </script>

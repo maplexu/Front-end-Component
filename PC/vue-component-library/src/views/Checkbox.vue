@@ -92,9 +92,9 @@
 </template>
 
 <script>
-import showExample from 'src/otherComponents/showExample.vue';
-import Checkbox from 'src/components/checkbox/checkbox.vue';
-import CheckboxGroup from 'src/components/checkbox/checkbox-group.vue';
+import showExample from 'business-comp/demo-box';
+import Checkbox from 'basic-comp/checkbox/checkbox.vue';
+import CheckboxGroup from 'basic-comp/checkbox/checkbox-group.vue';
 
 export default {
   components: {

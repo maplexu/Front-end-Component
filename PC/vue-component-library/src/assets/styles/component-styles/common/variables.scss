@@ -22,7 +22,6 @@ $g-color-white: #ffffff;
 $g-color-black: #000000;
 $g-color-transparent: transparent;
 
-
 $g-color-primary-light-1: mix($--color-white, $--color-primary, 10%);
 $g-color-primary-light-2: mix($--color-white, $--color-primary, 20%);
 $g-color-primary-light-3: mix($--color-white, $--color-primary, 30%);
@@ -58,11 +57,11 @@ $g-font-size--small: 13px;
 $g-font-size--mini: 12px;
 $g-font-size--large: 18px; 
 
-// 2.文字颜色（多个使用场景）
-$g-color-text-primary: #2d2f33;                   // 主要文本的颜色 
-$g-color-text-regular: #5a5e66;                   // 常规文本的颜色
-$g-color-text-secondary: #878d99;                 // 次级文本的颜色
-$g-color-text-placeholder: #b4bccc;               // placeholder文本的颜色
+// 2.文字颜色（多个使用场景下）
+$g-text-color-primary: #2d2f33;                   // 主要文本的颜色 
+$g-text-color-regular: #5a5e66;                   // 常规文本的颜色
+$g-text-color-secondary: #878d99;                 // 次级文本的颜色
+$g-text-color-placeholder: #b4bccc;               // placeholder文本的颜色
 
 $g-link-color: $g-color-primary-light-2;            // (超链接形式)文本的颜色
 $g-link-hover-color: $g-color-primary;

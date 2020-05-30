@@ -7,7 +7,7 @@ export default {
 
     const handler = () => vnode.context[binding.expression].apply();
     const clear = () => {
-      if(new Date() - startTime < 100) {
+      if (new Date() - startTime < 100) {
         handler();
       }
       clearInterval(interval);
@@ -15,11 +15,11 @@ export default {
     };
 
     on(el, 'mousedown', (e) => {
-      if(e.button !== 0) return;
+      if (e.button !== 0) return;
       startTime = new Date();
       once(document, 'mouseup', clear);
       clearInterval(interval);
       interval = setInterval(handler, 100);
     });
-  }
+  },
 };

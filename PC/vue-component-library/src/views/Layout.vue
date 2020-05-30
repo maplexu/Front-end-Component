@@ -127,9 +127,9 @@
 </template>
 
 <script>
-import showExample from '../otherComponents/showExample.vue';
-import Row from '../components/layout/row/row';
-import Col from '../components/layout/col/col.vue';
+import showExample from 'business-comp/demo-box';
+import Row from 'basic-comp/layout/row/row.vue';
+import Col from 'basic-comp/layout/col/col.vue';
 
 export default {
   components: {
@@ -137,7 +137,7 @@ export default {
     'xu-row': Row,
     'xu-col': Col,
   },
-}
+};
 </script>
 
 <style lang="scss">
