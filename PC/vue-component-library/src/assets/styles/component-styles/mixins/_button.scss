@@ -33,28 +33,28 @@ $button-padding-horizontal-mini: $g-padding-h-mini;
 // 2.不同类型（默认、primary、success、warning、danger、info）下：字体颜色、背景色、边框样式
 
 $button-color: $g-text-color-primary;
-$button-bg-color: $g-fill-base;
+$button-bg-color: $g-bg-base;
 $button-border: $g-border-base;
 
-$button-color-primary: $color-white;
-$button-bg-color-primary: $color-primary;
-$button-border-color-primary: $color-primary;
+$button-color-primary: $g-color-white;
+$button-bg-color-primary: $g-color-primary;
+$button-border-color-primary: $g-color-primary;
 
-$button-color-success: $color-white;
-$button-bg-color-success: $color-success;
-$button-border-color-success: $color-success;
+$button-color-success: $g-color-white;
+$button-bg-color-success: $g-color-success;
+$button-border-color-success: $g-color-success;
 
-$button-color-warning: $color-white;
-$button-bg-color-warning: $color-warning;
-$button-border-color-warning: $color-warning;
+$button-color-warning: $g-color-white;
+$button-bg-color-warning: $g-color-warning;
+$button-border-color-warning: $g-color-warning;
 
-$button-color-danger: $color-white;
-$button-bg-color-danger: $color-danger;
-$button-border-color-danger: $color-danger;
+$button-color-danger: $g-color-white;
+$button-bg-color-danger: $g-color-danger;
+$button-border-color-danger: $g-color-danger;
 
-$button-color-info: $color-white;
-$button-bg-color-info: $color-info;
-$button-border-color-info: $color-info;
+$button-color-info: $g-color-white;
+$button-bg-color-info: $g-color-info;
+$button-border-color-info: $g-color-info;
 
 // 3.不同状态（disabled、:hover、:active）下：字体颜色、填充的背景色、边框样式
 $button-color-disabled: $g-text-color-placeholder;
@@ -76,12 +76,132 @@ $button-font-weight: $g-font-weight;
 
 // 1.设置按钮的尺寸样式
 @mixin button-size($padding-v, $padding-h, $font-size, $border-radius) {
-  padding: $padding-v, $padding-h;
+  padding: $padding-v  $padding-h;
   font-size: $font-size;
   border-radius: $border-radius;
 
 
 }
+
+
+// 2.设置按钮的渲染样式  
+//  2.1 设置按钮的默认渲染样式（按钮的默认颜色表现跟有颜色时还是有点区别的，所以无法使用同一个封装的mixin）
+@mixin button-variant-default {
+  color: $button-color;
+  background: $button-bg-color;
+  border: $button-border;
+  
+  &:hover,
+  &:focus {
+    color: $g-color-primary;
+    background-color: $g-color-primary-light-8;
+    border-color: $g-color-primary-light-8;
+    
+  }
+  &:active {
+    color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+    border-color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+    outline: none;
+  }
+
+  @include when(active) {
+    color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+    border-color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+    outline: none;
+  }
+
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      color: $button-color-disabled;
+      cursor: not-allowed;
+      background-image: none;
+      background-color: $button-bg-color-disabled;
+      border-color: $button-border-color-disabled;
+    }
+  }
+
+  @include when(plain) {
+    &:hover,
+    &:focus {
+      color: $g-color-primary;
+      background-color: $g-color-white;
+      border-color: $g-color-primary;
+    }
+    &:active {
+      color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+      background: $g-color-white;
+      border-color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+      outline: none;
+    }
+  }
+
+  @include when(ghost) {
+    &:hover,
+    &:focus {
+      color: $g-color-primary;
+      background-color: $g-color-transparent;
+      border-color: $g-color-primary;
+    }
+    &:active {
+      color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+      background: $g-color-transparent;
+      border-color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
+      outline: none;
+    }
+  }
+}
+
+
+// 2.2 设置不同风格按钮的渲染样式：
+@mixin button-variant($color, $bg-color, $border-color) {
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+
+  &:hover,
+  &:focus {
+    color: $color;
+    background-color: mix($g-color-white, $bg-color, $button-hover-tint-percent);
+    border-color: mix($g-color-white, $border-color, $button-hover-tint-percent);
+    
+  }
+  &:active {
+    color: $color;
+    background-color: mix($g-color-black, $bg-color, $button-active-shade-percent);
+    border-color: mix($g-color-black, $border-color, $button-active-shade-percent);
+    outline: none;
+  }
+
+  @include when(active) {
+    color: $color;
+    background-color: mix($g-color-black, $bg-color, $button-active-shade-percent);
+    border-color: mix($g-color-black, $border-color, $button-active-shade-percent);
+  }
+
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      color: $g-color-white;
+      background-color: mix($bg-color, $g-color-white);
+      border-color: mix($border-color, $g-color-white);
+    }
+  }
+
+  // 组合 plain 的情况
+  @include when(plain) {
+    @include button-plain($bg-color);
+  }
+  // 组合 ghost 的情况
+  @include when(ghost) {
+    @include button-ghost($bg-color);
+  }
+}
+
 
 // 按钮在设置了反白属性--plain 时的渲染样式
 // * 特点；背景色、文本色、边框色跟正常情况下取反
@@ -143,103 +263,5 @@ $button-font-weight: $g-font-weight;
       color: mix($g-color-white, $color, 40%);
       border-color: mix($g-color-white, $color, 80%);
     }
-  }
-}
-
-
-// 2.设置按钮的渲染样式  
-//  2.1 设置按钮的默认渲染样式
-@mixin button-variant-default {
-  background: $button-bg;
-  border: $button-border;
-  border-color: $button-color;
-  color: $button-color;
-
-  &:hover,
-  &:focus {
-    color: $g-color-primary;
-    background-color: $g-color-primary-light-7;
-    border-color: $g-color-primary-light-7;
-    
-  }
-  &:active {
-    color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
-    border-color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
-    outline: none;
-  }
-
-  @include when(active) {
-    color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
-    border-color: mix($g-color-black, $g-color-primary, $button-active-shade-percent);
-    outline: none;
-  }
-
-  @include when(disabled) {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      color: $button-color-disabled;
-      cursor: not-allowed;
-      background-image: none;
-      background-color: $--button-disabled-fill;
-      border-color: $--button-disabled-border;
-    }
-  }
-
-  @include when(plain) {
-
-  }
-
-  @include when(ghost) {
-
-  }
-}
-
-
-// 2.2 设置不同风格按钮的渲染样式：
-@mixin button-variant($color, $bg-color, $border-color) {
-  color: $color;
-  background-color: $bg-color;
-  border-color: $border-color;
-
-  &:hover,
-  &:focus {
-    color: $color;
-    background-color: mix($g-color-white, $bg-color, $button-hover-tint-percent);
-    border-color: mix($g-color-white, $border-color, $button-hover-tint-percent);
-    
-  }
-  &:active {
-    color: $color;
-    background-color: mix($g-color-black, $bg-color, $button-active-shade-percent);
-    border-color: mix($g-color-black, $border-color, $button-active-shade-percent);
-    outline: none;
-  }
-
-  @include when(active) {
-    color: $color;
-    background-color: mix($g-color-black, $bg-color, $button-active-shade-percent);
-    border-color: mix($g-color-black, $border-color, $button-active-shade-percent);
-  }
-
-  @include when(disabled) {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      color: $g-color-white;
-      background-color: mix($bg-color, $g-color-white);
-      border-color: mix($border-color, $g-color-white);
-    }
-  }
-
-  // 组合 plain 的情况
-  @include when(plain) {
-    @include button-plain($bg-color);
-  }
-  // 组合 ghost 的情况
-  @include when(ghost) {
-    @include button-ghost($bg-color);
   }
 }

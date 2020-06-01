@@ -2,6 +2,8 @@
   修改webpack的默认配置
  */
 const path = require('path');
+const mdLoader = require('./build/loader/md-loader/index.js');
+
 function resolve(dir) {
   return path.resolve(__dirname, dir);
 }
@@ -23,6 +25,7 @@ module.exports = {
     //   }
     // }
   },
+  lintOnSave: false,
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@', resolve('./src'))
@@ -31,6 +34,23 @@ module.exports = {
       .set('component', resolve('./src/components'))
       .set('basic-comp', resolve('./src/components/basic-comp'))
       .set('business-comp', resolve('./src/components/business-comp'));
+
+    // config.module.rule('md')
+    //   .test(/\.md/)
+    //   .use('vue-loader')
+    //   .loader('vue-loader')
+    //   .end()
+    //   .use('vue-markdown-loader')
+    //   .loader('vue-markdown-loader/lib/markdown-compiler')
+    //   .options({ raw: true });
+    config.module.rule('md')
+      .test(/\.md$/)
+      .use('vue-loader')
+      .loader('vue-loader')
+      .end()
+      .use('mdLoader')
+      .loader(require.resolve('./build/loader/md-loader/index.js'))
+      .end();
   },
   // chainWebpack: config => {
   //   config.module

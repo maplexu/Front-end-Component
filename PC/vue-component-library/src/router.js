@@ -1,9 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
+import Button from 'src/examples/zh-CN/button.md';
+
 import Home from './views/Home.vue';
 import Layout from './views/Layout.vue';
 import Icon from './views/Icon.vue';
-import Button from './views/Button.vue';
+// import Button from './views/Button.vue';
+
 // import Radio from './views/Radio.vue';
 // import Checkbox from './views/Checkbox.vue';
 // import Input from './views/Input.vue';
@@ -18,16 +22,16 @@ export default new Router({
       name: 'home',
       component: Home,
     },
-    {
-      path: '/layout',
-      name: 'layout',
-      component: Layout,
-    },
-    {
-      path: '/icon',
-      name: 'icon',
-      component: Icon,
-    },
+    // {
+    //   path: '/layout',
+    //   name: 'layout',
+    //   component: Layout,
+    // },
+    // {
+    //   path: '/icon',
+    //   name: 'icon',
+    //   component: Icon,
+    // },
     {
       path: '/button',
       name: 'button',

@@ -9,7 +9,6 @@
 // 按钮的基础样式
 @include b(button) {
   display: inline-block;
-  line-height: $line-height;
   white-space: nowrap;                    // 文本不换行
   line-height: $g-line-height;
   cursor: pointer;
@@ -31,4 +30,40 @@
 
   // 设置默认按钮的渲染样式（文本颜色、背景色、边框）、以及在不同特殊状态下（:hover、:focus、:active、disbaled、plain、ghost）的样式表现
   @include button-variant-default;
+
+  // 不同 尺寸 的按钮样式
+  @include m(medium) {
+    @include button-size($button-padding-vertical-medium, $button-padding-horizontal-medium, $button-font-size-medium, $button-border-radius-medium);
+  }
+
+  @include m(small) {
+    @include button-size($button-padding-vertical-small, $button-padding-horizontal-small, $button-font-size-small, $button-border-radius-small);
+  }
+
+  @include m(mini) {
+    @include button-size($button-padding-vertical-mini, $button-padding-horizontal-mini, $button-font-size-mini, $button-border-radius-mini);
+  }
+
+  // 不同 颜色 类型的按钮样式
+  @include m(primary) {
+    @include button-variant($button-color-primary, $button-bg-color-primary, $button-border-color-primary);
+  }
+
+  @include m(success) {
+    @include button-variant($button-color-success, $button-bg-color-success, $button-border-color-success);
+  }
+
+  @include m(warning) {
+    @include button-variant($button-color-warning, $button-bg-color-warning, $button-border-color-warning);
+  }
+
+  @include m(danger) {
+    @include button-variant($button-color-danger, $button-bg-color-danger, $button-border-color-danger);
+  }
+
+  @include m(info) {
+    @include button-variant($button-color-info, $button-bg-color-info, $button-border-color-info);
+  }
+
+
 }

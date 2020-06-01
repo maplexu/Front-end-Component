@@ -3,7 +3,7 @@
   * 定义一些支持 ./mixins/mixins.scss文件中中 BEM 命名指令的函数
 */
 
-@import "./common/config.scss";
+@import "../common/config.scss";
 
 // 根据传入的选择器，返回对应的字符串结果
 @function selectorToString($selector) {

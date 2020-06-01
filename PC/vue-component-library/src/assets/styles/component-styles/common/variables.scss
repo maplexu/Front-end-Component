@@ -17,26 +17,26 @@ $g-color-success : #67c23a ;
 $g-color-warning: #eb9e05;
 $g-color-danger : #fa5555 ;
 
-$g-color-base: $g-primary-color;
+$g-color-base: $g-color-primary;
 $g-color-white: #ffffff;
 $g-color-black: #000000;
 $g-color-transparent: transparent;
 
-$g-color-primary-light-1: mix($--color-white, $--color-primary, 10%);
-$g-color-primary-light-2: mix($--color-white, $--color-primary, 20%);
-$g-color-primary-light-3: mix($--color-white, $--color-primary, 30%);
-$g-color-primary-light-4: mix($--color-white, $--color-primary, 40%);
-$g-color-primary-light-5: mix($--color-white, $--color-primary, 50%);
-$g-color-primary-light-6: mix($--color-white, $--color-primary, 60%);
-$g-color-primary-light-7: mix($--color-white, $--color-primary, 70%);
-$g-color-primary-light-8: mix($--color-white, $--color-primary, 80%);
-$g-color-primary-light-9: mix($--color-white, $--color-primary, 90%);
+$g-color-primary-light-1: mix($g-color-white, $g-color-primary, 10%);
+$g-color-primary-light-2: mix($g-color-white, $g-color-primary, 20%);
+$g-color-primary-light-3: mix($g-color-white, $g-color-primary, 30%);
+$g-color-primary-light-4: mix($g-color-white, $g-color-primary, 40%);
+$g-color-primary-light-5: mix($g-color-white, $g-color-primary, 50%);
+$g-color-primary-light-6: mix($g-color-white, $g-color-primary, 60%);
+$g-color-primary-light-7: mix($g-color-white, $g-color-primary, 70%);
+$g-color-primary-light-8: mix($g-color-white, $g-color-primary, 80%);
+$g-color-primary-light-9: mix($g-color-white, $g-color-primary, 90%);
 
 
 // 2.常见颜色变量：
 $g-background-color-base: #f5f7fa;                   // 默认背景色
 
-$g-fill-base: $--color-white;                           // 默认内容的填充色
+$g-bg-base: $g-color-white;                           // 默认内容的填充色
 
 
 // 3.尺寸大小
@@ -51,11 +51,11 @@ $g-size-base: 14px;
 
 // 1.文字大小
 $g-font-size: 14px;
-$g-font-size--base: 14px;
-$g-font-size--medium: 14px;
-$g-font-size--small: 13px;
-$g-font-size--mini: 12px;
-$g-font-size--large: 18px; 
+$g-font-size-base: 14px;
+$g-font-size-medium: 14px;
+$g-font-size-small: 13px;
+$g-font-size-mini: 12px;
+$g-font-size-large: 18px; 
 
 // 2.文字颜色（多个使用场景下）
 $g-text-color-primary: #2d2f33;                   // 主要文本的颜色 
@@ -71,7 +71,7 @@ $g-font-path: 'fonts';
 $g-font-weight: 500;
 
 // 4.行高
-$g-line-height: 1.5;
+$g-line-height: 1;
 
 // ----------------------------------------------------------------------------------------------
 
@@ -88,9 +88,9 @@ $g-border-color-base: #d8dce5;
 $g-border-color-light: #dfe4ed;
 $g-border-color-lighter: #e6ebf5;
 $g-border-color-extra-light: #edf2fc;
-$g-border-color-hover: $--color-text-placeholder;
+$g-border-color-hover: $g-text-color-placeholder;
 
-$g-border-base: $--border-width-base $--border-style-base $--border-color-base;
+$g-border-base: $g-border-width-base $g-border-style-base $g-border-color-base;
 
 $g-border-radius-base: 4px;
 $g-border-radius-medium: 3px;
@@ -129,9 +129,9 @@ $g-index-popper: 2000;
 
 // 2. 图标颜色
 $g-icon-color: #666;
-$g-icon-color-base: $--color-info;
+$g-icon-color-base: $g-color-info;
 
 // 3.一些disabled情况下的（填充、字体、边框）颜色
-$g-disabled-fill-base: $--background-color-base;
-$g-disabled-color-base: $--color-text-placeholder;
-$g-disabled-border-base: $--border-color-light;
+$g-disabled-bg-base: $g-background-color-base;
+$g-disabled-color-base: $g-text-color-placeholder;
+$g-disabled-border-base: $g-border-color-light;

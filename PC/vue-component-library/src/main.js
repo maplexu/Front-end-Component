@@ -5,6 +5,9 @@ import store from './store';
 import 'babel-polyfill';
 
 
+// 初始化样式内容
+import 'src/assets/styles/main.scss';
+
 // 初始化注册全局指令：
 import 'src/directives';
 

@@ -40,6 +40,7 @@ export default {
     loading: Boolean,             // 按钮是否加载中
     disabled: Boolean,            // 按钮是否禁用状态
     plain: Boolean,               // 是否朴素按钮
+    ghost: Boolean,               // 是否为幽灵按钮
     autofocus: Boolean,           // 是否默认聚焦
     round: Boolean,               // 是否圆角按钮
     circle: Boolean               // 是否圆形按钮
@@ -48,13 +49,14 @@ export default {
     classList() {
       let classList = ['xu-button'];
 
-      if(this.type) classList.push(`xu-button--${this.type}`);
-      if(this.buttonSize) classList.push(`xu-button--${this.buttonSize}`);
-      if(this.buttonDisabled) classList.push('is-disabled');
-      if(this.loading) classList.push('is-loading');
-      if(this.plain) classList.push('is-plain');
-      if(this.round) classList.push('is-round');
-      if(this.circle) classList.push('is-circle');
+      if (this.type) classList.push(`xu-button--${this.type}`);
+      if (this.buttonSize) classList.push(`xu-button--${this.buttonSize}`);
+      if (this.buttonDisabled) classList.push('is-disabled');
+      if (this.loading) classList.push('is-loading');
+      if (this.plain) classList.push('is-plain');
+      if (this.ghost) classList.push('is-ghost');
+      if (this.round) classList.push('is-round');
+      if (this.circle) classList.push('is-circle');
 
       return classList;
     },

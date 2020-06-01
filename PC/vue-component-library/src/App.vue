@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div id="headerBar">
-      <h1 class="headerBar_title">maplexu组件库（Vue实现）</h1>
+      <!-- <h1 class="headerBar_title">maplexu组件库（Vue实现）</h1> -->
+      <h1 class="headerBar_title">maplexu</h1>
       <div class="colorPicker">
 
       </div>
