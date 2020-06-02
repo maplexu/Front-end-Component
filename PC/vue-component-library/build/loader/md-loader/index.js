@@ -7,7 +7,7 @@ const md = require('./config');
 
 module.exports = function(source) {
   const content = md.render(source);
-
+  console.log('打印md5编译转换出的内容content', content);
   const startTag = '<!--element-demo:';
   const startTagLen = startTag.length;
   const endTag = ':element-demo-->';
